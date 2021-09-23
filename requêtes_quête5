@@ -1,0 +1,21 @@
+SELECT t.`name`, p.`role`, w.lastname, w.firstname 
+FROM player p
+INNER JOIN wizard w
+   ON p.wizard_id = w.id
+INNER JOIN team t
+   ON p.team_id = t.id 
+ORDER BY `name` ASC, `role`, firstname, lastname;
+
+SELECT w.firstname, w.lastname, p.`role`
+FROM player p
+INNER JOIN wizard w
+   ON p.wizard_id = w.id 
+WHERE `role` = 'seeker'
+ORDER BY lastname, firstname;
+
+SELECT w.firstname, w.lastname, p.enrollment_date
+FROM player p
+INNER JOIN wizard w
+   ON p.wizard_id = w.id 
+WHERE enrollment_date = null
+ORDER BY lastname, firstname;
